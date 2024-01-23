@@ -5,7 +5,6 @@ import (
 	"fmt"
 	"log"
 	"math/big"
-	"net/http"
 	"strings"
 
 	"github.com/0xsequence/ethkit/ethrpc"
@@ -46,7 +45,7 @@ func main() {
 
 	// Setup Relayer on the wallet
 	relayerURL := "https://arbitrum-nova-relayer.sequence.app"
-	relayer, err := relayer.NewRpcRelayer(p, nil, relayerURL, http.DefaultClient)
+	relayer, err := relayer.NewRpcRelayer(relayerURL, "", p, nil)
 	if err != nil {
 		log.Fatalf("failed to create new rpc relayer client: %v", err)
 	}
